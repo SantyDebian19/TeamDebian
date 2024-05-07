@@ -1,0 +1,20 @@
+C:\Users\julal\OneDrive\Desktop\Escuela\6to Semestre\Lenguajes de Interfaz\Práctica 1 Team Debian\bin\Debug\Práctica 1 Team Debian.exe.config
+C:\Users\julal\OneDrive\Desktop\Escuela\6to Semestre\Lenguajes de Interfaz\Práctica 1 Team Debian\bin\Debug\Práctica 1 Team Debian.exe
+C:\Users\julal\OneDrive\Desktop\Escuela\6to Semestre\Lenguajes de Interfaz\Práctica 1 Team Debian\bin\Debug\Práctica 1 Team Debian.pdb
+C:\Users\julal\OneDrive\Desktop\Escuela\6to Semestre\Lenguajes de Interfaz\Práctica 1 Team Debian\obj\Debug\Práctica 1 Team Debian.csproj.AssemblyReference.cache
+C:\Users\julal\OneDrive\Desktop\Escuela\6to Semestre\Lenguajes de Interfaz\Práctica 1 Team Debian\obj\Debug\Práctica_1_Team_Debian.Form1.resources
+C:\Users\julal\OneDrive\Desktop\Escuela\6to Semestre\Lenguajes de Interfaz\Práctica 1 Team Debian\obj\Debug\Práctica_1_Team_Debian.Properties.Resources.resources
+C:\Users\julal\OneDrive\Desktop\Escuela\6to Semestre\Lenguajes de Interfaz\Práctica 1 Team Debian\obj\Debug\Práctica 1 Team Debian.csproj.GenerateResource.cache
+C:\Users\julal\OneDrive\Desktop\Escuela\6to Semestre\Lenguajes de Interfaz\Práctica 1 Team Debian\obj\Debug\Práctica 1 Team Debian.csproj.CoreCompileInputs.cache
+C:\Users\julal\OneDrive\Desktop\Escuela\6to Semestre\Lenguajes de Interfaz\Práctica 1 Team Debian\obj\Debug\Práctica 1 Team Debian.exe
+C:\Users\julal\OneDrive\Desktop\Escuela\6to Semestre\Lenguajes de Interfaz\Práctica 1 Team Debian\obj\Debug\Práctica 1 Team Debian.pdb
+C:\Users\julal\OneDrive\Desktop\Escuela\6to Semestre\Lenguajes de Interfaz\Práctica1_TeamDebian\bin\Debug\Práctica 1 Team Debian.exe.config
+C:\Users\julal\OneDrive\Desktop\Escuela\6to Semestre\Lenguajes de Interfaz\Práctica1_TeamDebian\bin\Debug\Práctica 1 Team Debian.exe
+C:\Users\julal\OneDrive\Desktop\Escuela\6to Semestre\Lenguajes de Interfaz\Práctica1_TeamDebian\bin\Debug\Práctica 1 Team Debian.pdb
+C:\Users\julal\OneDrive\Desktop\Escuela\6to Semestre\Lenguajes de Interfaz\Práctica1_TeamDebian\obj\Debug\Práctica 1 Team Debian.csproj.AssemblyReference.cache
+C:\Users\julal\OneDrive\Desktop\Escuela\6to Semestre\Lenguajes de Interfaz\Práctica1_TeamDebian\obj\Debug\Práctica_1_Team_Debian.Form1.resources
+C:\Users\julal\OneDrive\Desktop\Escuela\6to Semestre\Lenguajes de Interfaz\Práctica1_TeamDebian\obj\Debug\Práctica_1_Team_Debian.Properties.Resources.resources
+C:\Users\julal\OneDrive\Desktop\Escuela\6to Semestre\Lenguajes de Interfaz\Práctica1_TeamDebian\obj\Debug\Práctica 1 Team Debian.csproj.GenerateResource.cache
+C:\Users\julal\OneDrive\Desktop\Escuela\6to Semestre\Lenguajes de Interfaz\Práctica1_TeamDebian\obj\Debug\Práctica 1 Team Debian.csproj.CoreCompileInputs.cache
+C:\Users\julal\OneDrive\Desktop\Escuela\6to Semestre\Lenguajes de Interfaz\Práctica1_TeamDebian\obj\Debug\Práctica 1 Team Debian.exe
+C:\Users\julal\OneDrive\Desktop\Escuela\6to Semestre\Lenguajes de Interfaz\Práctica1_TeamDebian\obj\Debug\Práctica 1 Team Debian.pdb
