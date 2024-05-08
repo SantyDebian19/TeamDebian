@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de LED</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1 class="Inicios">TEAM DEBIAN</h1>
+    <div class="container">
+        <h1>Control de LED</h1>
+        <button onclick="enviarComando('encender')">Encender LED</button>
+        <button onclick="enviarComando('apagar')">Apagar LED</button>
+
+    </div>
+
+    <script>
+        function enviarComando(comando) {
+            fetch(`/led?command=${comando}`)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("mensaje").innerText = data;
+
+                    if (comando === 'encender') {
+                        foco.classList.add('encendido');
+                    } else {
+                        foco.classList.remove('encendido');
+                    }
+                });
+        }
+    </script>
+</body>
+
+</html>
