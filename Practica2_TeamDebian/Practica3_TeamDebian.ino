@@ -1,3 +1,8 @@
+//Práctica 0 - TeamDebian
+//Integrantes:
+//Santy Francisco Martinez Castellanos - 21211989
+//Julio Alejandro Hernández León -21211963
+//Luis Roberto Leal Lua - 21211970
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_GFX.h>
 Adafruit_SSD1306 display(128, 64);
