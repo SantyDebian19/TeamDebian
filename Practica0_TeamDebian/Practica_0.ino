@@ -1,3 +1,8 @@
+//Práctica 0 - TeamDebian
+//Integrantes:
+//Santy Francisco Martinez Castellanos - 21211989
+//Julio Alejandro Hernández León -21211963
+//Luis Roberto Leal Lua - 21211970
 #include <Arduino.h>
 
 const int ledPin = 25; // Pin GPIO donde está conectado el LED
