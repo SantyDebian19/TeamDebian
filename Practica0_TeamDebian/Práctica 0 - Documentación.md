@@ -1,4 +1,4 @@
-# Documentación Práctica 0 IDE 
+# Documentación Práctica 0 IDE Arduino
 
 ## Código Utilizado
 
