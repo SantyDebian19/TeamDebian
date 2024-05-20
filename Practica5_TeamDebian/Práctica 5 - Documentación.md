@@ -1,0 +1,127 @@
+# Documentación Práctica 5 Pico W con ChatGPT
+
+### Integrantes:
+
+* SANTY FRANCISCO MARTINEZ CASTELLANOS - 21211989
+* JULIO ALEJANDRO HERNÁNDEZ LEÓN - 21211963
+* LUIS ROBERTO LEAL LUA - 21211970
+
+## Código Utilizado
+
+```Arduino
+
+//Práctica 5 - Pico W con ChatGPT 
+//TeamDebian
+//Integrantes:
+//Santy Francisco Martinez Castellanos - 21211989
+//Julio Alejandro Hernández León -21211963
+//Luis Roberto Leal Lua - 21211970
+
+#include <Arduino.h>
+#include <WiFi.h>
+#include <WiFiClientSecure.h>
+
+// Nombre y clave de red
+const char* ssid = "INFINITUM5A66_2.4";
+const char* password = "duke1975";
+
+// APY y Modelo
+const char* api_key = "sk-proj-SCrtDnfTA7psqYCbJUlnT3BlbkFJbiGIBcW6p4Av82yVF5KA";
+const char* model_id = "gpt-3.5-turbo-0125";
+
+// Configuración del host y URL para la API
+const char* host = "api.openai.com";
+const char* url = "/v1/chat/completions";
+
+void setup() {
+  Serial.begin(115200);
+  delay(10);
+
+  // Conexión a Wi-Fi
+  Serial.println();
+  Serial.print("Conectando a ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.println("WiFi conectado");
+
+  // Configuración del cliente seguro
+  WiFiClientSecure client;
+  client.setInsecure();
+  client.setTimeout(10000);
+
+  // Conexión a la API de ChatGPT
+  Serial.print("Conectando a la API...");
+  if (!client.connect(host, 443)) {
+    Serial.println("¡Error al conectar!");
+    return;
+  }
+  Serial.println("¡Conexión exitosa!");
+
+  // Construcción de la carga útil de solicitud
+  String estructura = "{";
+  estructura += "\"model\": \"gpt-3.5-turbo-0125\",";
+  estructura += "\"messages\": [";
+  estructura += "{\"role\": \"user\",";
+  estructura += "\"content\": \"Dime un chiste del team debian\"}";
+  estructura += "],";
+  estructura += "\"temperature\": 0.7,";
+  estructura += "\"max_tokens\": 50,";
+  estructura += "\"n\": 1,";
+  estructura += "\"stop\": \"\\n\"}";
+
+  // Construcción de la solicitud HTTP
+  String resultado = "POST ";
+  resultado += url;
+  resultado += " HTTP/1.1\r\n";
+  resultado += "Host: ";
+  resultado += host;
+  resultado += "\r\n";
+  resultado += "Authorization: Bearer ";
+  resultado += api_key;
+  resultado += "\r\n";
+  resultado += "Content-Type: application/json\r\n";
+  resultado += "Content-Length: ";
+  resultado += estructura.length();
+  resultado += "\r\n\r\n";
+  resultado += estructura;
+
+  // Envío de la solicitud HTTP
+  Serial.println("Enviando solicitud...");
+  client.print(resultado);
+
+  // Espera la respuesta de la API de OpenAI
+  Serial.println("Esperando respuesta...");
+  while (client.connected()) {
+    if (client.available()) {
+      String response = client.readString();
+      Serial.print(response);
+    }
+  }
+}
+
+void loop() {
+  // No hay nada que hacer aquí, ya que todo el trabajo se realiza en setup()
+}
+
+
+```
+
+## Fotografías de ChatGPT Funcional
+
+En esta fotografía se define un prompt “Dime el carro más rápido del mundo” que va a servir para que ChatGPT nos de una respuesta, como se muestra en la imágen.
+
+![image](https://github.com/SantyDebian19/TeamDebian/assets/105742969/df258cbe-337f-40d8-b3d4-bcac78184770)
+
+Se muestra otro prompt utilizado “Dame un chiste del team debian” 
+
+![image](https://github.com/SantyDebian19/TeamDebian/assets/105742969/174659dc-6393-42c5-83e1-c4371ef55b22)
+
+El prompt utilizado para que nos devuelva una respuesta es: “Dime un chiste del team windows”.
+
+![image](https://github.com/SantyDebian19/TeamDebian/assets/105742969/27587a15-93c9-4a84-b07a-b773483ce7b6)
+
