@@ -1,5 +1,11 @@
 # Documentación Práctica 0 IDE Arduino
 
+### Integrantes:
+
+* SANTY FRANCISCO MARTINEZ CASTELLANOS - 21211989
+* JULIO ALEJANDRO HERNÁNDEZ LEÓN - 21211963
+* LUIS ROBERTO LEAL LUA - 21211970
+
 ## Código Utilizado
 
 ```arduino
