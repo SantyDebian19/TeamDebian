@@ -42,9 +42,13 @@ void loop() {
 
 ## Fotografías del Funcionamiento 
 
+Fotografía de Raspberry con el programa funcionando correctamente.
+
 ![image](https://github.com/SantyDebian19/TeamDebian/assets/105742969/989dc7aa-e15c-4337-bdc2-5556e2fc8f0e)
 
 ![image](https://github.com/SantyDebian19/TeamDebian/assets/105742969/8ab86499-d795-4a45-815f-b9016ca80319)
+
+Fotografía del simulador funcionando.
 
 ![image](https://github.com/SantyDebian19/TeamDebian/assets/105742969/447048c3-f5ed-484a-bb9d-f9c4685e8595)
 
