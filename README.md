@@ -1,4 +1,4 @@
-# TeamDebian
+# TeamDebian - Repositorio Final
 ![logo_ITT](https://github.com/SantyDebian19/TeamDebian/assets/105742969/a652dc3f-4b45-4d8e-b1ac-2e58755d7faa)
 
 ### INSTITUTO TECNOLÓGICO DE TIJUANA
