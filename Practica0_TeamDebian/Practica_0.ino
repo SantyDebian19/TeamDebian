@@ -1,4 +1,5 @@
-//Práctica 0 - TeamDebian
+//Práctica 0 - IDE Arduino 
+//Team Debian
 //Integrantes:
 //Santy Francisco Martinez Castellanos - 21211989
 //Julio Alejandro Hernández León -21211963
