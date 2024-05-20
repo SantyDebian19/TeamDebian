@@ -1,9 +1,9 @@
-//Práctica 5
-//Realizado por:
-// Martinez Castellanos Santy Francisco
-// Leal Lua Luis Roberto
-// Hernandez Leon Julio Alejandro
-//Team Debian
+//Práctica 5 - Pico W con ChatGPT 
+//TeamDebian
+//Integrantes:
+//Santy Francisco Martinez Castellanos - 21211989
+//Julio Alejandro Hernández León -21211963
+//Luis Roberto Leal Lua - 21211970
 
 #include <Arduino.h>
 #include <WiFi.h>
