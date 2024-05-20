@@ -10,6 +10,13 @@
 
 ```C#
 
+//Práctica 1 - C# a Raspberry 
+//Team Debian
+//Integrantes:
+//Santy Francisco Martinez Castellanos - 21211989
+//Julio Alejandro Hernández León -21211963
+//Luis Roberto Leal Lua - 21211970
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
