@@ -1,3 +1,10 @@
+//Proyecto Final 
+//Team Debian
+//Integrantes:
+//Santy Francisco Martinez Castellanos - 21211989
+//Julio Alejandro Hernández León -21211963
+//Luis Roberto Leal Lua - 21211970
+
 import processing.serial.*;  // Importa la biblioteca para la comunicación serial
 import java.nio.ByteBuffer;  // Importa ByteBuffer para manejar los bytes de manera eficiente
 import java.nio.ByteOrder;   // Importa ByteOrder para especificar el orden de los bytes
