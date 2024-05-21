@@ -1,98 +1,83 @@
-//Práctica 4 - Control Bluetooth con Pico W
+//Practica 4 Bluetooth
 //Team Debian
-//Integrantes:
-//Santy Francisco Martinez Castellanos - 21211989
-//Julio Alejandro Hernández León -21211963
-//Luis Roberto Leal Lua - 21211970
+// Martinez Castellanos Santy Francisco
+// Leal Lua Luis Roberto
+// Hernandez Leon Julio Alejandro
 
-#include <Arduino.h>
-#include <WiFi.h>
-#include <WiFiClientSecure.h>
+#include <BTstackLib.h>  // Biblioteca Bluetooth
+#include <SPI.h>  // Biblioteca SPI
 
-// Nombre y clave de red
-const char* ssid = "INFINITUM5A66_2.4";
-const char* password = "duke1975";
+static char characteristic_data = 'H';  
 
-// APY y Modelo
-const char* api_key = "sk-proj-SCrtDnfTA7psqYCbJUlnT3BlbkFJbiGIBcW6p4Av82yVF5KA";
-const char* model_id = "gpt-3.5-turbo-0125";
+void setup(void) {
+  Serial.begin(9600);
+  pinMode(LED_BUILTIN, OUTPUT);  // LED DE SALIDA
 
-// Configuración del host y URL para la API
-const char* host = "api.openai.com";
-const char* url = "/v1/chat/completions";
+  // Funciones de callback
+  BTstack.setBLEDeviceConnectedCallback(deviceConnectedCallback);
+  BTstack.setBLEDeviceDisconnectedCallback(deviceDisconnectedCallback);
+  BTstack.setGATTCharacteristicRead(gattReadCallback);
+  BTstack.setGATTCharacteristicWrite(gattWriteCallback);
 
-void setup() {
-  Serial.begin(115200);
-  delay(10);
+  // Base de datos GATT
+  BTstack.addGATTService(new UUID("B8E06067-62AD-41BA-9231-206AE80AB551"));  // Se añade un servicio GATT
+  BTstack.addGATTCharacteristic(new UUID("f897177b-aee8-4767-8ecc-cc694fd5fcef"), ATT_PROPERTY_READ, "This is a String!");  // Se añade una característica GATT
+  BTstack.addGATTCharacteristicDynamic(new UUID("f897177b-aee8-4767-8ecc-cc694fd5fce0"), ATT_PROPERTY_READ | ATT_PROPERTY_WRITE | ATT_PROPERTY_NOTIFY, 0);  // Se añade una característica GATT dinámica
 
-  // Conexión a Wi-Fi
-  Serial.println();
-  Serial.print("Conectando a ");
-  Serial.println(ssid);
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-  Serial.println("");
-  Serial.println("WiFi conectado");
+  // Inicia Bluetooth
+  BTstack.setup();
+  BTstack.startAdvertising();
+}
 
-  // Configuración del cliente seguro
-  WiFiClientSecure client;
-  client.setInsecure();
-  client.setTimeout(10000);
+void loop(void) {
+  BTstack.loop(); 
+}
 
-  // Conexión a la API de ChatGPT
-  Serial.print("Conectando a la API...");
-  if (!client.connect(host, 443)) {
-    Serial.println("¡Error al conectar!");
-    return;
-  }
-  Serial.println("¡Conexión exitosa!");
-
-  // Construcción de la carga útil de solicitud
-  String estructura = "{";
-  estructura += "\"model\": \"gpt-3.5-turbo-0125\",";
-  estructura += "\"messages\": [";
-  estructura += "{\"role\": \"user\",";
-  estructura += "\"content\": \"Dime un chiste del team windows\"}";
-  estructura += "],";
-  estructura += "\"temperature\": 0.7,";
-  estructura += "\"max_tokens\": 50,";
-  estructura += "\"n\": 1,";
-  estructura += "\"stop\": \"\\n\"}";
-
-  // Construcción de la solicitud HTTP
-  String resultado = "POST ";
-  resultado += url;
-  resultado += " HTTP/1.1\r\n";
-  resultado += "Host: ";
-  resultado += host;
-  resultado += "\r\n";
-  resultado += "Authorization: Bearer ";
-  resultado += api_key;
-  resultado += "\r\n";
-  resultado += "Content-Type: application/json\r\n";
-  resultado += "Content-Length: ";
-  resultado += estructura.length();
-  resultado += "\r\n\r\n";
-  resultado += estructura;
-
-  // Envío de la solicitud HTTP
-  Serial.println("Enviando solicitud...");
-  client.print(resultado);
-
-  // Espera la respuesta de la API de OpenAI
-  Serial.println("Esperando respuesta...");
-  while (client.connected()) {
-    if (client.available()) {
-      String response = client.readString();
-      Serial.print(response);
-    }
+void deviceConnectedCallback(BLEStatus status, BLEDevice *device) {
+  (void) device;  
+  switch (status) {
+    case BLE_STATUS_OK:
+      Serial.println("Device connected!");  // Indica si el dispositivo esta conectado
+      break;
+    default:
+      break;
   }
 }
 
-void loop() {
-  // No hay nada que hacer aquí, ya que todo el trabajo se realiza en setup()
+void deviceDisconnectedCallback(BLEDevice * device) {
+  (void) device;  
+  Serial.println("Disconnected.");  // Indica si el dispositivo se ha desconectado
 }
 
+uint16_t gattReadCallback(uint16_t value_handle, uint8_t * buffer, uint16_t buffer_size) {
+  (void) value_handle;  
+  (void) buffer_size;  
+  if (buffer) {
+    Serial.print("gattReadCallback, value: ");
+    Serial.println(characteristic_data, HEX);  // Valor de la caractistica Hexadecimal 
+    buffer[0] = characteristic_data;  
+
+    // Control del LED
+    if (characteristic_data == '1')
+      digitalWrite(LED_BUILTIN, HIGH);  // LED ENCENDIDO
+    else if (characteristic_data == '0')
+      digitalWrite(LED_BUILTIN, LOW);   // LED APAGADO
+  }
+  return 1;  
+}
+
+int gattWriteCallback(uint16_t value_handle, uint8_t *buffer, uint16_t size) {
+  (void) value_handle;  
+  (void) size;  
+  characteristic_data = buffer[0]; 
+  
+  // Controla del LED
+  if (characteristic_data == '1')
+    digitalWrite(LED_BUILTIN, HIGH);  // LED ENCENDIDO
+  else if (characteristic_data == '0')
+    digitalWrite(LED_BUILTIN, LOW);   // LED APAGADO
+
+  Serial.print("gattWriteCallback , value ");
+  Serial.println(characteristic_data, HEX);  // Valor de la caractistica Hexadecimal 
+  return 0; 
+}
