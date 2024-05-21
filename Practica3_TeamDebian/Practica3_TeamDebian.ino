@@ -1,6 +1,5 @@
 //Práctica 3 - Pico W Wifi Server 
 //TeamDebian
-//Integrantes:
 //Santy Francisco Martinez Castellanos - 21211989
 //Julio Alejandro Hernández León -21211963
 //Luis Roberto Leal Lua - 21211970
@@ -49,15 +48,15 @@ const char* htmlContent = R"(
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #fff; /* Fondo blanco */
-            color: #2c3e50; /* Texto oscuro */
-            margin: 0; /* Eliminar margen predeterminado */
-            padding: 0; /* Eliminar relleno predeterminado */
+            background-color: #fff; 
+            color: #2c3e50;
+            margin: 0; 
+            padding: 0; 
         }
         h1 {
-            font-size: 36px; /* Tamaño grande de fuente */
-            margin-top: 50px; /* Espacio superior */
-            margin-bottom: 20px; /* Espacio inferior */
+            font-size: 36px; 
+            margin-top: 50px; 
+            margin-bottom: 20px;
             font-weight: bold; 
         }
         button {
